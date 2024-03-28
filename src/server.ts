@@ -1,15 +1,15 @@
 import app from "./app"
 import mongoose from "mongoose";
-const port = 5000
+import config from "./config";
 // getting-started.js
 
 
 async function server() {
  try {
-    await mongoose.connect(`${process.env.DATABASE_URL_LOCAL}`);
+    await mongoose.connect(config.database_url_local);
 
-    app.listen(port, () => {
-        console.log(`Murir app listening on port ${port}`)
+    app.listen(process.env.PORT, () => {
+        console.log(`Murir app listening on port ${config.port}`)
     })
     // use `await mongoose.connect('mongodb://user:password@127.0.0.1:27017/test');` if your database has auth enabled
  } catch (error) {
