@@ -1,11 +1,14 @@
-import express from 'express';
+import express, { Application, Request, Response } from 'express';
 
 
 
-const app = express()
+const app:Application = express()
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
+app.get('/', (req:Request, res:Response) => {
+  res.status(200).json({
+    status: 'success',
+    messeage:'welcome to bd tours and travel',
+  })
 })
 
 export default app;
